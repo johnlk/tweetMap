@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Firehose Test</title>
+	<style type="text/css">
+		#tweetHolder{
+			position: absolute;
+			left: 60%;
+		}
+		.profilePic{
+			width: 70px;
+			height: 70px;
+			margin: 0px 0 -70px 10px;
+		}
+		.name{
+			font-size: 20px;
+			font-weight: bold;
+			margin: -9px 0 0 95px;
+		}
+		.handle{
+			font-size: 18px;
+			font-style: italic;
+			margin: -23px 0 0 300px;
+		}
+		.text{
+			font-size: 17px;
+		    width: 350px;
+		    height: 63px;
+		    margin: 7px 0 0 94px;
+		}
+		.location{
+			font-size: 12px;
+			text-align: right;
+			margin: -10px 4px 0 0px;
+		}
+		.tweet{
+			width: 476px;
+		    height: 110px;
+		    border: 1px solid black;
+		    border-radius: 5px;
+		    background-color: #e8ebef;
+		    margin: 5px 0;
+		}
+		.tweet:first-of-type{
+			margin-top: -5px;
+		}
+	</style>
+	<script src="http://cdn.pubnub.com/pubnub.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="raphael.js"></script>
+	<!-- <script src="color.jquery.js"></script> -->
+	<script src="us-map.js"></script>
+</head>
+<body>
+<div id="tweetHolder"></div>
+<div id="map" style="width: 350px; height: 250px;"></div>
+<script type="text/javascript">
+		var limit = 20;
+		var count = 0;
+
+		var $div = $("<div class='tweet'><img class='profilePic' src=''><div class='name'></div><div class='handle'></div><div class='text'></div><div class='location'></div></div>");
+
+		$('#tweetHolder').append($div);
+
+		$('#map').usmap({
+		  // The click action
+		  click: function(event, data) {
+		  	alert('click');
+		    // $('#clicked-state')
+		    //   .text('You clicked: '+data.name)
+		    //   .parent().effect('highlight', {color: '#C7F464'}, 2000);
+		  }
+		});
+
+		PUBNUB.init({
+			subscribe_key: 'sub-c-78806dd4-42a6-11e4-aed8-02ee2ddab7fe'
+		}).subscribe({
+			channel : 'pubnub-twitter',
+			message : function(msg){ 
+				//var newDiv = document.createElement('div');
+				if(msg.place.country == "United States"){
+					// var $div = $("<div class='tweet'><img class='profilePic' src=''><div class='name'></div><div class='handle'></div><div class='text'></div><div class='location'></div></div>");
+
+					// $('#tweetHolder').append($div);
+					$('.text:last').html(msg.text);
+					$('.profilePic:last').attr('src', msg.user.profile_image_url_https);
+					$('.name:last').html(msg.user.name);
+					$('.handle:last').html("@" + msg.user.screen_name);
+					$('.location:last').html(msg.place.full_name);
+
+					console.log(msg);
+					count++;
+				}
+			}
+		});
+	</script>
+</body>
+</html>
