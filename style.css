@@ -1,6 +1,10 @@
+body{
+	/*background-color: #eee;*/
+}
 #tweetHolder {
 	position: absolute;
 	left: 65%;
+	top: 75%;
 }
 .profilePic {
 	width: 70px;
@@ -37,7 +41,7 @@
 	margin: 5px 0;
 }
 .tweet:first-of-type {
-	margin-top: -5px;
+	margin-top: 7px;
 }
 svg{
 	width: 840px;

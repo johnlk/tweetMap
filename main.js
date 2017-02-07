@@ -1,10 +1,12 @@
-var limit = 10;
+var limit = 0;
 var tweets = 0;
 
 var $div = $("<div class='tweet'><img class='profilePic' src=''><div class='name'></div><div class='handle'></div>" + 
 	"<div class='text'></div><div class='location'></div></div>");
 
 $('#tweetHolder').append($div);
+
+$('.stately').eq(0).css('width', window.innerWidth);
 
 var stateTotals = {
 	"AL": 0, "AK": 0, "AZ": 0, "AR": 0,	"CA": 0,
@@ -17,10 +19,7 @@ var stateTotals = {
 	"OK": 0, "OR": 0, "PA": 0, "RR": 0, "SC": 0,
 	"SD": 0, "TN": 0, "TX": 0, "UT": 0, "VT": 0,
 	"VA": 0, "WA": 0, "WV": 0, "WI": 0, "WY": 0,
-	"GU": 0,//guam
-	"PR": 0,//puerto rico
-	"VI": 0,//virgin islands
-	"DC": 0
+	"DC": 0, "GU": 0, "PR": 0, "VI": 0//guam, puerto rico, virgin islands
 }
 
 function addToState(placeName){
