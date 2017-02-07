@@ -1,6 +1,6 @@
 #tweetHolder {
 	position: absolute;
-	left: 60%;
+	left: 65%;
 }
 .profilePic {
 	width: 70px;
@@ -8,29 +8,29 @@
 	margin: 0px 0 -70px 10px;
 }
 .name {
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: bold;
 	margin: -9px 0 0 95px;
 }
 .handle {
-	font-size: 18px;
+	font-size: 16px;
 	font-style: italic;
-	margin: -23px 0 0 300px;
+	margin: -24px 0 0 281px;
 }
 .text {
-	font-size: 17px;
-	width: 350px;
+	font-size: 15px;
+	width: 305px;
 	height: 63px;
 	margin: 7px 0 0 94px;
 }
 .location {
 	font-size: 12px;
 	text-align: right;
-	margin: -10px 4px 0 0px;
+	margin: 0px 4px 0 0px;
 }
 .tweet {
-	width: 476px;
-	height: 110px;
+	width: 405px;
+	height: 120px;
 	border: 1px solid black;
 	border-radius: 5px;
 	background-color: #e8ebef;
@@ -39,11 +39,8 @@
 .tweet:first-of-type {
 	margin-top: -5px;
 }
-#map{
-	width: 700px;
-	height: 500px;
-}
 svg{
-	width: 700px;
-	height: 500px;
+	width: 840px;
+	height: 600px;
+	margin-top: 85px;
 }
