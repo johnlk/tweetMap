@@ -1,0 +1,7 @@
+Tweet Map is a map of the US with live updates to the states' colors signifying tweet volume.
+
+Using the Twitter Firehose API to catch United States tweets.
+
+Found at:
+
+http://rawgit.com/johnlk/tweetMap/master/index.html
