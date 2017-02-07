@@ -8,7 +8,7 @@
   font-style: normal; }
 
 .stately {
-  font: normal normal 850px "stately-webfont";
+  font: normal normal 800px "stately-webfont";
   line-height: 100%;
   font-size-adjust: none;
   -webkit-text-rendering: optimizeLegibility;
@@ -22,7 +22,7 @@
   /*overflow: hidden;*/
   width: 300px;
   display: block;
-  margin-top: 35%;
+  margin-top: 20%;
   /*margin: 0 auto;*/
   padding: 0;
   list-style: none;
