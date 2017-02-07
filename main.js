@@ -97,33 +97,33 @@ function updateColor(){
 			if(percentage > 15){
 				$('.' + state).css('color', '#ff0000');
 			}else if(percentage == 14){
-				$('.' + state).css('color', '#ec1313');
+				$('.' + state).css('color', '#ff4000');
 			}else if(percentage == 13){
-				$('.' + state).css('color', '#e61919');
+				$('.' + state).css('color', '#ff8000');
 			}else if(percentage == 12){
-				$('.' + state).css('color', '#df2020');
+				$('.' + state).css('color', '#ffbf00');
 			}else if(percentage == 11){
-				$('.' + state).css('color', '#d92626');
+				$('.' + state).css('color', '#ffff00');
 			}else if(percentage == 10){
-				$('.' + state).css('color', '#d22d2d');
+				$('.' + state).css('color', '#bfff00');
 			}else if(percentage == 9){
-				$('.' + state).css('color', '#cc3333');
+				$('.' + state).css('color', '#80ff00');
 			}else if(percentage == 8){
-				$('.' + state).css('color', '#c63939');
+				$('.' + state).css('color', '#40ff00');
 			}else if(percentage == 7){
-				$('.' + state).css('color', '#bf4040');
+				$('.' + state).css('color', '#00ff00');
 			}else if(percentage == 6){
-				$('.' + state).css('color', '#b94646');
+				$('.' + state).css('color', '#00ff40');
 			}else if(percentage == 5){
-				$('.' + state).css('color', '#b34d4d');
+				$('.' + state).css('color', '#00ff80');
 			}else if(percentage == 4){
-				$('.' + state).css('color', '#ac5353');
+				$('.' + state).css('color', '#00ffbf');
 			}else if(percentage == 3){
-				$('.' + state).css('color', '#a65959');
+				$('.' + state).css('color', '#00ffff');
 			}else if(percentage == 2){
-				$('.' + state).css('color', '#9f6060');
+				$('.' + state).css('color', '#00bfff');
 			}else{
-				$('.' + state).css('color', '#996666');				
+				$('.' + state).css('color', '#80dfff');				
 			}
 		}
 	}
