@@ -1,4 +1,4 @@
-var limit = 200;
+var limit = 500;
 var tweets = 0;
 
 var $div = $("<div class='tweet'><img class='profilePic' src=''><div class='name'></div><div class='handle'></div>" + 
