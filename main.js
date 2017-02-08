@@ -94,7 +94,7 @@ var colors = ["ff0000", "ff3333", "ff4000", "ff6633", "ff8000", "ff9933", "ffbf0
 			  "0040ff", "3366ff", "0000ff", "3333ff", "4000ff", "6633ff", "8000ff", "9933ff", "bf00ff", "cc33ff",
 			  "ff00ff", "ff33ff", "ff00bf", "ff33cc", "ff0080", "ff3399"];
 
-function test(){	
+function updateColor(){	
 	var count = 0;
 
 	var states = Object.keys(stateTotals).map(function(key) {
@@ -109,47 +109,6 @@ function test(){
 		if(states[i][1] > 0){
 			$("." + (states[i][0]).toLowerCase()).css('color', '#' + colors[count]);
 			count++;
-		}
-	}
-}
-
-function updateColor(){
-	for(key in stateTotals){
-		if(stateTotals[key] != 0){
-			var state = key.toLowerCase();
-			var percentage = Math.ceil(stateTotals[key] * 100 / tweets);
-			//console.log(percentage);
-			if(percentage > 15){
-				$('.' + state).css('color', '#ff0000');
-			}else if(percentage == 14){
-				$('.' + state).css('color', '#ff4000');
-			}else if(percentage == 13){
-				$('.' + state).css('color', '#ff8000');
-			}else if(percentage == 12){
-				$('.' + state).css('color', '#ffbf00');
-			}else if(percentage == 11){
-				$('.' + state).css('color', '#ffff00');
-			}else if(percentage == 10){
-				$('.' + state).css('color', '#bfff00');
-			}else if(percentage == 9){
-				$('.' + state).css('color', '#80ff00');
-			}else if(percentage == 8){
-				$('.' + state).css('color', '#40ff00');
-			}else if(percentage == 7){
-				$('.' + state).css('color', '#00ff00');
-			}else if(percentage == 6){
-				$('.' + state).css('color', '#00ff40');
-			}else if(percentage == 5){
-				$('.' + state).css('color', '#00ff80');
-			}else if(percentage == 4){
-				$('.' + state).css('color', '#00ffbf');
-			}else if(percentage == 3){
-				$('.' + state).css('color', '#00ffff');
-			}else if(percentage == 2){
-				$('.' + state).css('color', '#00bfff');
-			}else{
-				$('.' + state).css('color', '#80dfff');
-			}
 		}
 	}
 }
@@ -170,13 +129,7 @@ PUBNUB.init({
 
 			addToState(msg.place.full_name);			
 			tweets++;
-			//updateColor();
-			test();
-		}else if(tweets == limit && msg.place != null && msg.place.country == "United States"){
-			tweets++;
-
-			test();
-
+			updateColor();
 		}
 
 	}	
