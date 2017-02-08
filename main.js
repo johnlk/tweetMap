@@ -88,12 +88,37 @@ function addToState(placeName){
 	}
 }
 
+var colors = ["ff0000", "ff3333", "ff4000", "ff6633", "ff8000", "ff9933", "ffbf00", "ffcc33", "ffff00", "ffff33",
+			  "bfff00", "ccff33", "80ff00", "99ff33", "40ff00", "66ff33", "00ff00", "33ff33", "00ff40", "33ff66",
+			  "00ff80", "33ff99", "00ffbf", "33ffcc", "00ffff", "33ffff", "00bfff", "33ccff", "0080ff", "3399ff",
+			  "0040ff", "3366ff", "0000ff", "3333ff", "4000ff", "6633ff", "8000ff", "9933ff", "bf00ff", "cc33ff",
+			  "ff00ff", "ff33ff", "ff00bf", "ff33cc", "ff0080", "ff3399"];
+
+function test(){	
+	var count = 0;
+
+	var states = Object.keys(stateTotals).map(function(key) {
+	    return [key, stateTotals[key]];
+	});
+
+	states.sort(function(first, second) {
+	    return second[1] - first[1];
+	});
+
+	for(var i = 0; i < states.length-1; i++){
+		if(states[i][1] > 0){
+			$("." + (states[i][0]).toLowerCase()).css('color', '#' + colors[count]);
+			count++;
+		}
+	}
+}
+
 function updateColor(){
 	for(key in stateTotals){
 		if(stateTotals[key] != 0){
 			var state = key.toLowerCase();
-			var percentage = parseInt(stateTotals[key] * 100 / tweets);
-			console.log(percentage);
+			var percentage = Math.ceil(stateTotals[key] * 100 / tweets);
+			//console.log(percentage);
 			if(percentage > 15){
 				$('.' + state).css('color', '#ff0000');
 			}else if(percentage == 14){
@@ -123,7 +148,7 @@ function updateColor(){
 			}else if(percentage == 2){
 				$('.' + state).css('color', '#00bfff');
 			}else{
-				$('.' + state).css('color', '#80dfff');				
+				$('.' + state).css('color', '#80dfff');
 			}
 		}
 	}
@@ -145,7 +170,13 @@ PUBNUB.init({
 
 			addToState(msg.place.full_name);			
 			tweets++;
-			updateColor();
+			//updateColor();
+			test();
+		}else if(tweets == limit && msg.place != null && msg.place.country == "United States"){
+			tweets++;
+
+			test();
+
 		}
 
 	}	
