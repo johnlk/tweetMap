@@ -1,4 +1,3 @@
-var limit = 500;
 var tweets = 0;
 
 var $div = $("<div class='tweet'><img class='profilePic' src=''><div class='name'></div><div class='handle'></div>" + 
@@ -19,7 +18,7 @@ var stateTotals = {
 	"OK": 0, "OR": 0, "PA": 0, "RR": 0, "SC": 0,
 	"SD": 0, "TN": 0, "TX": 0, "UT": 0, "VT": 0,
 	"VA": 0, "WA": 0, "WV": 0, "WI": 0, "WY": 0,
-	"DC": 0, "GU": 0, "PR": 0, "VI": 0//guam, puerto rico, virgin islands
+	"DC": 0
 }
 
 function addToState(placeName){
@@ -29,7 +28,6 @@ function addToState(placeName){
 		}else if(placeName.split(',')[1]){
 			stateTotals[placeName.split(',')[1].trim()] = 1;
 		}
-		//console.log(stateTotals);
 	}else{
 		switch(placeName.split(',')[0]){
 			case "Alabama":	stateTotals["AL"]++; break;
@@ -88,15 +86,24 @@ function addToState(placeName){
 	}
 }
 
-var colors = ["ff0000", "ff3333", "ff4000", "ff6633", "ff8000", "ff9933", "ffbf00", "ffcc33", "ffff00", "ffff33",
-			  "bfff00", "ccff33", "80ff00", "99ff33", "40ff00", "66ff33", "00ff00", "33ff33", "00ff40", "33ff66",
-			  "00ff80", "33ff99", "00ffbf", "33ffcc", "00ffff", "33ffff", "00bfff", "33ccff", "0080ff", "3399ff",
-			  "0040ff", "3366ff", "0000ff", "3333ff", "4000ff", "6633ff", "8000ff", "9933ff", "bf00ff", "cc33ff",
-			  "ff00ff", "ff33ff", "ff00bf", "ff33cc", "ff0080", "ff3399"];
+//51 colors for the ranked states
+var colors = ["f20d0d", "f90606", "ff0000", "f2460d", "f94306", "ff4000", "f2800d", "f98006", "ff8000",
+			  "f2b90d", "f9bc06", "ffbf00", "f2f20d", "f9f906", "ffff00", "b9f20d", "bcf906", "bfff00",
+			  "80f20d", "80f906", "80ff00", "0df246", "06f943", "00ff40", "0df280", "06f980", "00ff80",
+			  "0df2b9", "06f9bc", "00ffbf", "0df2f2", "06f9f9", "00ffff", "0db9f2", "06bcf9", "00bfff",
+			  "0d80f2", "0680f9", "0080ff", "0d46f2", "0643f9", "0040ff", "460df2", "4306f9", "4000ff",
+			  "800df2", "8006f9", "8000ff", "b90df2", "bc06f9", "bf00ff"];
+
+for(var i = 0; i < colors.length; i++){
+	var $div = $('<div class="colorRange"></div>');
+	$div.css('background-color', '#' + colors[i]);
+	$('#colorsHolder').append($div);
+}
 
 function updateColor(){	
 	var count = 0;
 
+	//ranks the states by how most tweets
 	var states = Object.keys(stateTotals).map(function(key) {
 	    return [key, stateTotals[key]];
 	});
@@ -119,8 +126,7 @@ PUBNUB.init({
 	channel : 'pubnub-twitter',
 	message : function(msg){ 
 
-		if(tweets < limit && msg.place != null && msg.place.country == "United States"){
-
+		if(msg.place != null && msg.place.country == "United States"){
 			$('.text:last').html(msg.text);
 			$('.profilePic:last').attr('src', msg.user.profile_image_url_https);
 			$('.name:last').html(msg.user.name);
@@ -131,6 +137,6 @@ PUBNUB.init({
 			tweets++;
 			updateColor();
 		}
-
+		
 	}	
 });

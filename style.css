@@ -1,5 +1,21 @@
-body{
-	/*background-color: #eee;*/
+#colorsHolder{
+	position: absolute;
+	top: 25px;
+	left: 1070px;
+}
+.colorRange{
+	width: 100px;
+	height: 3px;
+}
+span{
+	position: absolute;
+	left: -35px;
+	font-size: 10px;
+}
+img{
+	width: 14px;
+    height: 11px;
+    margin-bottom: -3px;
 }
 #tweetHolder {
 	position: absolute;
