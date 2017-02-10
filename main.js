@@ -5,7 +5,7 @@ var $div = $("<div class='tweet'><img class='profilePic' src=''><div class='name
 
 $('#tweetHolder').append($div);
 
-$('.stately').eq(0).css('width', window.innerWidth);
+//$('.stately').eq(0).css('width', window.innerWidth * 0.8);
 
 var stateTotals = {
 	"AL": 0, "AK": 0, "AZ": 0, "AR": 0,	"CA": 0,

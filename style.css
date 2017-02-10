@@ -1,7 +1,7 @@
 #colorsHolder{
 	position: absolute;
-	top: 25px;
-	left: 1070px;
+	top: 4%;
+	left: 89%;
 }
 .colorRange{
 	width: 100px;
@@ -11,6 +11,9 @@ span{
 	position: absolute;
 	left: -35px;
 	font-size: 10px;
+}
+span:last-of-type{
+	top:140px;
 }
 img{
 	width: 14px;
@@ -58,4 +61,118 @@ img{
 }
 .tweet:first-of-type {
 	margin-top: 7px;
+}
+.stately{
+	width: 1150px;
+}
+@media(max-width: 1164px){
+	#colorsHolder{
+		top: 4%;
+		left: 80%;
+	}
+	.stately{
+		font: normal normal 600px "stately-webfont" !important;
+		margin-top: 34% !important;
+		margin-left: 35% !important;
+	}
+	#tweetHolder{
+		left: 56%;
+		top: 75%;
+	}
+	.profilePic{
+		width: 60px;
+		height: 60px;
+		margin: 0px 0 -54px 10px;
+	}
+	.name{
+		font-size: 15px;
+		margin: -13px 0 0 95px;
+	}
+	.handle{
+		font-size: 13px;
+		margin: -18px 0 0 281px;
+	}
+	.text{
+		font-size: 12px;
+		width: 280px;
+		height: 50px;
+	}
+	.tweet{
+		width: 380px;
+		height: 95px;
+	}
+}
+@media(max-width: 899px){
+	.stately{
+		margin-top: 34% !important;
+		margin-left: 85% !important;
+	}
+	#colorsHolder{
+		top: 78%;
+		left: 10%;
+	}
+	.colorRange{
+		width: 80px;
+		height: 2px;
+	}
+	span:last-of-type{
+		top:90px;
+	}
+	#tweetHolder{
+		left: 43%;
+		top: 78%;
+	}
+}
+@media(max-width: 699px){
+	#tweetHolder{
+		left: 35%;
+	}
+}
+@media(max-width: 594px){
+	.stately{
+		font: normal normal 450px "stately-webfont" !important;
+		margin-top: 54% !important;
+		margin-left: 110% !important;
+	}
+	#tweetHolder{
+		left: 25%;
+	}
+	.colorRange{
+		width: 60px;
+	}
+	.profilePic{
+		width: 58px;
+		height: 58px;
+	}
+	.name{
+		font-size: 12px;
+	}
+	.handle{
+		font-size: 10px;
+		margin: -14px 0 0 231px;
+	}
+	.text{
+		font-size: 10px;
+		width: 224px;
+		height: 40px;
+	}
+	.tweet{
+		width: 320px;
+		height: 80px;
+	}
+}
+@media(max-width: 444px){
+	.stately{
+		font: normal normal 350px "stately-webfont" !important;
+		margin-top: 54% !important;
+		margin-left: 130% !important;
+	}
+	#colorsHolder{
+		top: 55%;
+		left:75%;
+	}
+	#tweetHolder{
+		left: 10%;
+    	top: 80%;
+	}
 }
