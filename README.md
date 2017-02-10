@@ -5,3 +5,5 @@ Using the Twitter Firehose API to catch United States tweets.
 Found at:
 
 http://rawgit.com/johnlk/tweetMap/master/index.html
+
+![screenShot](https://raw.githubusercontent.com/johnlk/tweetMap/master/Screen%20Shot.png)
